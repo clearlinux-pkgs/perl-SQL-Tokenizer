@@ -4,12 +4,13 @@
 #
 Name     : perl-SQL-Tokenizer
 Version  : 0.24
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/I/IZ/IZUT/SQL-Tokenizer-0.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IZ/IZUT/SQL-Tokenizer-0.24.tar.gz
 Summary  : A simple SQL tokenizer.
 Group    : Development/Tools
 License  : Artistic-1.0
+Requires: perl-SQL-Tokenizer-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -22,14 +23,23 @@ Summary: dev components for the perl-SQL-Tokenizer package.
 Group: Development
 Provides: perl-SQL-Tokenizer-devel = %{version}-%{release}
 Requires: perl-SQL-Tokenizer = %{version}-%{release}
-Requires: perl-SQL-Tokenizer = %{version}-%{release}
 
 %description dev
 dev components for the perl-SQL-Tokenizer package.
 
 
+%package perl
+Summary: perl components for the perl-SQL-Tokenizer package.
+Group: Default
+Requires: perl-SQL-Tokenizer = %{version}-%{release}
+
+%description perl
+perl components for the perl-SQL-Tokenizer package.
+
+
 %prep
 %setup -q -n SQL-Tokenizer-0.24
+cd %{_builddir}/SQL-Tokenizer-0.24
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -65,8 +75,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/SQL/Tokenizer.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/SQL::Tokenizer.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/SQL/Tokenizer.pm
