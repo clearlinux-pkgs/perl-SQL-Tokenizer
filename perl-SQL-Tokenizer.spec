@@ -4,7 +4,7 @@
 #
 Name     : perl-SQL-Tokenizer
 Version  : 0.24
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/I/IZ/IZUT/SQL-Tokenizer-0.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IZ/IZUT/SQL-Tokenizer-0.24.tar.gz
 Summary  : A simple SQL tokenizer.
